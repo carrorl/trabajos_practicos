@@ -1,5 +1,5 @@
-// /* 
-// 1 Escribir una función llamada `contrasenaValida` que reciba un string y retorne `true` 
+// /*
+// 1 Escribir una función llamada `contrasenaValida` que reciba un string y retorne `true`
 // si el string es igual a "2Fj(jjbFsuj" o "eoZiugBf&g9". De lo contrario debe retornar `false`.
 // */
 
@@ -16,8 +16,8 @@
 // console.log(contrasenaValuda("")); // false
 
 // /*
-// 2 - Escribir una función llamada `calcularImpuestos` que reciba dos argumentos numéricos: 
-// `edad` e `ingresos`. Si `edad` es igual o mayor a 18 y los ingresos son iguales o mayores 
+// 2 - Escribir una función llamada `calcularImpuestos` que reciba dos argumentos numéricos:
+// `edad` e `ingresos`. Si `edad` es igual o mayor a 18 y los ingresos son iguales o mayores
 // a 1000 debe retornar `ingresos` \* 40%. De lo contrario retornar 0.
 // */
 
@@ -44,22 +44,77 @@ Escribir una función llamada `bmi` que reciba dos argumentos: peso y altura, y 
 - "Obeso" si es igual o mayor a 30
 */
 
-function bmi(peso, altura){
-  let indice = peso / (altura**altura)
+// function bmi(peso, altura){
+//   let indice = peso / (altura**2)
 
-  if (indice >= 30) {
-    return 'Obeso'
-  } else if (indice >= 25) {
-    return 'Sobrepeso'
-  } else if (indice >= 18.5) {
-    return 'Normal'
-  } else if (indice < 18.5){
-    return 'Bajo de peso'
+//   if (indice >= 30) {
+//     return 'Obeso'
+//   } else if (indice >= 25) {
+//     return 'Sobrepeso'
+//   } else if (indice >= 18.5) {
+//     return 'Normal'
+//   } else if (indice < 18.5){
+//     return 'Bajo de peso'
+//   }
+// }
+
+// // código de prueba
+// console.log(bmi(65, 1.8)); // "Normal"
+// console.log(bmi(72, 1.6)); // "Sobrepeso"
+// console.log(bmi(52, 1.75)); //  "Bajo de peso"
+// console.log(bmi(135, 1.7)); // "Obeso"
+
+/*
+4 - Escribir una función llamada `imprimirArreglo` que reciba un arreglo e imprima cada elemento 
+en una línea a parte:
+*/
+
+// function imprimirArreglo(a, b, c, d) {
+//   const array = []
+//   array.push(a)
+//   array.push(b)
+//   array.push(c)
+//   array.push(d)
+//   return array.join("\n")
+// }
+
+// // código de prueba
+// console.log(imprimirArreglo(1, "Hola", 2, "Mundo"));
+// // 1
+// // Hola
+// // 2
+// // Mundo
+
+/*
+5 - Escribe una función llamada `likes` que reciba un número y retorne un string utilizando el 
+formato de K para miles y M para millones.
+
+Por ejemplo:
+
+- 1400 se convierte en 1K
+- 34,567 se convierte en 34K
+- 7’456,345 se convierte en 7M.
+*/
+
+function likes (n) {
+  
+  let likeCount = 0
+
+  if(n > 1000 && n < 1000000) {
+    likeCount = Math.floor(n/1000)
+  } else if (n >= 1000000 ) {
+    likeCount = Math.floor(n/1000000)
+  } else {
+    likeCount = n
   }
+  return `${likeCount}M`
 }
 
 // código de prueba
-console.log(bmi(65, 1.8)); // "Normal"
-console.log(bmi(72, 1.6)); // "Sobrepeso"
-console.log(bmi(52, 1.75)); //  "Bajo de peso"
-console.log(bmi(135, 1.7)); // "Obeso"
+console.log(likes(983)); // "983"
+console.log(likes(1900)); // "1K"
+console.log(likes(54000)); // "54K"
+console.log(likes(120800)); // "120K"
+console.log(likes(25222444)); // "25M"
+
+
